@@ -5,46 +5,42 @@
 class Agec < Formula
   desc ""
   homepage ""
-  version "0.2.3"
+  version "0.2.4"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/aca/agec/releases/download/v0.2.3/agec_0.2.3_darwin_amd64"
-      sha256 "f23006c688609c625886f939b705006293087de036c623e2086bee92d04477af"
+      url "https://github.com/aca/agec/releases/download/v0.2.4/agec_0.2.4_darwin_amd64"
+      sha256 "f90a4deda51238c055d42e42ef21b8e5bad2b0f5aed88fa2eb494df352b4312d"
 
       def install
-        bin.install "agec"
-        generate_completions_from_executable(bin/"agec", "completion")
+        bin.install "agec_0.2.4_darwin_amd64" => "agec"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/aca/agec/releases/download/v0.2.3/agec_0.2.3_darwin_arm64"
-      sha256 "6acea6934af14d80acc7e8bbba2a7c9fd80f5559445cabd85f8a3ccfd9c7d4ae"
+      url "https://github.com/aca/agec/releases/download/v0.2.4/agec_0.2.4_darwin_arm64"
+      sha256 "86cd867a9814ff54a81f0811137319fafd0bd0460c1bd6b005826b5a1bf82193"
 
       def install
-        bin.install "agec"
-        generate_completions_from_executable(bin/"agec", "completion")
+        bin.install "agec_0.2.4_darwin_arm64" => "agec"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/aca/agec/releases/download/v0.2.3/agec_0.2.3_linux_amd64"
-      sha256 "39ad4ff29f884b64b4ee7c4c18f21bf489853a28e6b5887ea792625a20066d19"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/aca/agec/releases/download/v0.2.4/agec_0.2.4_linux_arm64"
+      sha256 "83ed582978c4b5fff297fba511bbf86c6d35a28b265978544739f8ef68a94111"
 
       def install
-        bin.install "agec"
-        generate_completions_from_executable(bin/"agec", "completion")
+        bin.install "agec_0.2.4_linux_arm64" => "agec"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/aca/agec/releases/download/v0.2.3/agec_0.2.3_linux_arm64"
-      sha256 "e934f38cd18c462ecb9c4690530ecf59cd532e1ec69928a03684a7e5d2477e31"
+    if Hardware::CPU.intel?
+      url "https://github.com/aca/agec/releases/download/v0.2.4/agec_0.2.4_linux_amd64"
+      sha256 "c5730ca9201323c6609052213dfb2497184b3e0b1270c729df6ab1e47a14bfd9"
 
       def install
-        bin.install "agec"
-        generate_completions_from_executable(bin/"agec", "completion")
+        bin.install "agec_0.2.4_linux_amd64" => "agec"
       end
     end
   end
