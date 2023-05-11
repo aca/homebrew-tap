@@ -5,42 +5,42 @@
 class Testrelease < Formula
   desc ""
   homepage ""
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/aca/testrelease/releases/download/v0.1.0/testrelease_0.1.0_darwin_arm64"
-      sha256 "a17cea9c10b3b6a31bb50a3dc0bd284ba844240f37212b46831680284bd12c20"
+    if Hardware::CPU.intel?
+      url "https://github.com/aca/testrelease/releases/download/v0.1.1/testrelease_0.1.1_darwin_amd64"
+      sha256 "5938f3142b4d4fd3b7953f0bd0df794a7f8bbae13fb80b65bfd540acc5c2e115"
 
       def install
-        bin.install "testrelease"
+        bin.install "testrelease_0.1.1_darwin_amd64" => "testrelease"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/aca/testrelease/releases/download/v0.1.0/testrelease_0.1.0_darwin_amd64"
-      sha256 "f3e58495dfdc95dfc8129609f7290a6120f53b6e82c26e9f596d85eed6db55d3"
+    if Hardware::CPU.arm?
+      url "https://github.com/aca/testrelease/releases/download/v0.1.1/testrelease_0.1.1_darwin_arm64"
+      sha256 "22c474f202e4a49a7f6c6d8e913b0fd9a9efb8a86686d471e4531b6bcaef9250"
 
       def install
-        bin.install "testrelease"
+        bin.install "testrelease_0.1.1_darwin_arm64" => "testrelease"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/aca/testrelease/releases/download/v0.1.0/testrelease_0.1.0_linux_arm64"
-      sha256 "dc10488924f915d6643301236ce0a4d1d61e9646cfcce38b8ff4891321531e19"
+    if Hardware::CPU.intel?
+      url "https://github.com/aca/testrelease/releases/download/v0.1.1/testrelease_0.1.1_linux_amd64"
+      sha256 "dc9680b087dba0dc4c13cebf73cfb9b2652af813282866c03e982de49e4fc154"
 
       def install
-        bin.install "testrelease"
+        bin.install "testrelease_0.1.1_linux_amd64" => "testrelease"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/aca/testrelease/releases/download/v0.1.0/testrelease_0.1.0_linux_amd64"
-      sha256 "ea08c8a474add38c98aa84948dc5471076f2a9c650fe277e687051ba0b1a0eca"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/aca/testrelease/releases/download/v0.1.1/testrelease_0.1.1_linux_arm64"
+      sha256 "725605c721588b891b0ca3a6861497c9ac94ce5dadd5ea4410db609d513dad81"
 
       def install
-        bin.install "testrelease"
+        bin.install "testrelease_0.1.1_linux_arm64" => "testrelease"
       end
     end
   end
